@@ -1,0 +1,170 @@
+/* Smooth scroll */
+html{ scroll-behavior:smooth; }
+
+/* Glass panel */
+.glass-card{ 
+  position:relative;
+  border-radius:28px;
+  background:rgba(17,17,23,.72);
+  backdrop-filter:blur(10px); 
+}
+
+.glass-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  padding:1px;
+  border-radius:inherit;
+  background:linear-gradient(135deg,rgba(168,85,247,.7),rgba(59,130,246,.45),rgba(236,72,153,.7));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  pointer-events:none;
+}
+
+/* Neon buttons */
+.btn-neon{
+  border-radius:9999px;
+  color:#fff;
+  font-weight:700;
+  letter-spacing:.02em;
+  padding:.8rem 1.6rem;
+  background-image:linear-gradient(90deg,#9a4dff 0%,#ff2d95 50%,#7c3aed 100%);
+  box-shadow:0 18px 40px rgba(168,85,247,.55),0 6px 20px rgba(236,72,153,.55);
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+
+.btn-neon:hover{
+  transform:translateY(-2px);
+  box-shadow:0 26px 60px rgba(168,85,247,.7),0 12px 32px rgba(236,72,153,.7);
+}
+
+.btn-outline{
+  border:2px solid #a855f7;
+  color:#c084fc;
+  border-radius:9999px;
+  padding:.8rem 1.6rem;
+  font-weight:700;
+  letter-spacing:.02em;
+  box-shadow:0 14px 30px rgba(168,85,247,.35);
+  transition:all .2s ease;
+}
+
+.btn-outline:hover{
+  background:#a855f7;
+  color:#fff;
+  transform:translateY(-2px);
+}
+
+/* Animated headline glow */
+.headline-span{
+  display:inline-block;
+  background-size:300% 300%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  animation:headlineShift 10s ease-in-out infinite,headlineGlow 3s ease-in-out infinite;will-change:background-position,filter;
+}
+.headline-1{
+  background-image:linear-gradient(90deg,#fb7185,#a78bfa,#60a5fa);
+}
+
+.headline-2{
+  background-image:linear-gradient(90deg,#60a5fa,#a78bfa,#fb7185);
+}
+
+.headline-3{
+  background-image:linear-gradient(90deg,#a78bfa,#fb7185,#67e8f9);
+}
+
+@keyframes headlineShift{
+  0%{
+    background-position:0% 50%
+  }50%{
+    background-position:100% 50%
+  }100%{
+    background-position:0% 50%
+  }
+}
+
+@keyframes headlineGlow{
+  0%{
+    filter:drop-shadow(0 0 10px rgba(168,85,247,.25))
+  }50%{
+    filter:drop-shadow(0 0 24px rgba(168,85,247,.55))
+  }100%{
+    filter:drop-shadow(0 0 10px rgba(168,85,247,.25))
+  }
+}
+
+/* Animated gradient logo */
+.logo-gradient{
+  display:inline-block;
+  background-image:linear-gradient(90deg,#f0abfc,#a78bfa,#60a5fa,#f0abfc);background-size:300% 300%;
+  background-position:0% 50%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  filter:drop-shadow(0 0 12px rgba(168,85,247,.55));
+  animation:logoGradientMove 5s ease-in-out infinite;
+}
+
+.logo-gradient:hover{
+  filter:drop-shadow(0 0 18px rgba(168,85,247,.75));
+}
+
+@keyframes logoGradientMove{
+  0%{
+    background-position:0% 50%
+  }50%{
+    background-position:100% 50%
+  }100%{
+    background-position:0% 50%
+  }
+}
+
+/* Stripes behind hero editor */
+.bg-stripes{
+  background-image: repeating-linear-gradient(
+    -45deg, rgba(255,255,255,.06) 0px, rgba(255,255,255,.06) 2px, transparent 2px, transparent 14px
+  );
+}
+.editor-grid{
+  background-image: linear-gradient(to right, rgba(148,163,184,.06) 1px, transparent 1px);
+  background-size: 24px 100%;
+}
+.caret{
+  display:inline-block;
+  width:8px;
+  height:1.1em;
+  background:rgba(226,232,240,.9);
+  animation:caretBlink .9s steps(1) infinite;
+  position:relative;top:2px;
+}
+
+.typing-caret{
+  width:10px;
+  background:rgba(226,232,240,.9);
+  animation:caretBlink .9s steps(1) infinite;
+}
+@keyframes caretBlink{
+  50%{
+    opacity:0
+  }
+}
+
+/* Respect keyboard users */
+:focus-visible {
+  outline: 2px solid #a855f7;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .headline-span,
+  .logo-gradient {
+    animation: none !important;
+  }
+  .btn-neon, .btn-outline {
+    transition: none !important;
+  }
+}
