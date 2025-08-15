@@ -32,7 +32,11 @@ export default function Contact() {
     emailjs.sendForm( "service_3vsw6h4" , "template_e997eej",formRef.current,"oeYmccowsg22QJWIK")
     .then(()=>{
       setStatus({loading:false,ok:true,msg:"Message sent successfully."})
-      e.target.reset();
+      setForm({
+        name:"",
+    email:"",
+    message:""
+      })
     })
     .catch(()=>{
       setStatus({loading:false,ok:false,msg:"Failed to send the message."})
