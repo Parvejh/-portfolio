@@ -41,27 +41,6 @@ export default function Contact() {
     .catch(()=>{
       setStatus({loading:false,ok:false,msg:"Failed to send the message."})
     })
-
-    // try{
-    //   const res = await fetch(`${API_BASE}/api/contact`,{
-    //     method:"POST",
-    //     headers:{"Content-Type":"application/json"},
-    //     body:JSON.stringify(form),
-    //   })
-    //   const date = await res.json();
-    //   if(!res.ok) throw new Error(data?.message ||"Something went wrong");
-    //   setStatus({
-    //     loading:false,
-    //     ok:true,
-    //     msg:"Thanks! I'll get back to you shortly."
-    //   })
-    // }catch(err){
-    //   setStatus({
-    //     loading:false,
-    //     ok:false,
-    //     msg:err.message||"Failed to send."
-    //   })
-    // }
   }
 
   return (

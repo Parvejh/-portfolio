@@ -1,12 +1,39 @@
-# React + Vite
+# 🌐 Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive personal portfolio website built with **React**, **Vite**, **TailwindCSS**, and **EmailJS**.  
+This portfolio showcases my skills, projects, and contact information with a clean and interactive UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
+- ⚡ **Fast & Optimized** with Vite and React  
+- 🎨 **Styled with TailwindCSS** for a modern and responsive design  
+- 🖼️ **Projects Showcase** with links to live demos and details  
+- 📬 **Contact Form** integrated with EmailJS (sends messages directly to my email)  
+- 🌙 **Modern UI/UX** with animations and hover effects  
+- 📱 **Fully Responsive** (mobile, tablet, desktop)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+- **Frontend:** React, Vite, React Router  
+- **Styling:** TailwindCSS  
+- **Email Service:** EmailJS  
+- **Deployment:** Vercel  
+
+---
+
+## 📂 Project Structure
+
+portfolio/
+│── public/ # Static assets
+│── src/
+│ ├── components/ # Reusable UI components (Navbar, Hero, Projects, Contact, Footer)
+│ ├── pages/ # Different page sections
+│ ├── App.jsx # Main app entry
+│ ├── index.css # Tailwind styles
+│ └── main.jsx # React entry point
+│── package.json # Dependencies & scripts
+│── tailwind.config.js # Tailwind config
+│── vite.config.js # Vite config
+│── README.md # Project documentation
