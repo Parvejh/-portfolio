@@ -1,6 +1,8 @@
 /* Smooth scroll */
 html{ scroll-behavior:smooth; }
 
+html, body, #root { overflow-x: hidden; }
+
 /* Glass panel */
 .glass-card{ 
   position:relative;
@@ -167,4 +169,47 @@ html{ scroll-behavior:smooth; }
   .btn-neon, .btn-outline {
     transition: none !important;
   }
+}
+
+/* Never allow page-level horizontal scrolling */
+html, body, #root { overflow-x: hidden; }
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ---- Ultra-small screens: <= 380-400px ---- */
+@media (max-width: 400px) {
+  /* The gradient border pseudo of the card can add sub-pixels → hide it */
+  .glass-card::before { display: none !important; }
+
+  /* Clamp everything within hero to the viewport width */
+  #hero, #hero * { max-width: 100% !important; }
+
+  /* Side paddings a bit tighter */
+  .glass-card { padding-left: 14px !important; padding-right: 14px !important; border-radius: 18px !important; }
+
+  /* Headline tighter so it never pushes width */
+  #hero h1 { font-size: 26px !important; line-height: 1.16 !important; word-break: break-word; }
+
+  /* Buttons: full width, capped, and NO glow on tiny screens */
+  .btn-neon, .btn-outline {
+    width: 100%;
+    max-width: 16rem;
+    margin-left: auto; margin-right: auto;
+    box-shadow: none !important; filter: none !important;
+  }
+
+  /* Editor/Terminal: wrap long lines and scroll inside only */
+  #hero pre, #hero code { white-space: pre-wrap !important; word-break: break-word !important; }
+  .editor-grid, .code { max-height: 170px !important; overflow: auto !important; }
+  .term { max-height: 120px !important; overflow: auto !important; }
+
+  /* Kill any large ambient glows/stripes on tiny screens */
+  #hero [class*="blur-3xl"], #hero .bg-stripes { display: none !important; }
+
+  /* Safety: no child can force width */
+  .min-w-0, #hero .min-w-0 { min-width: 0 !important; }
+}
+
+/* If your navbar has big horizontal padding, tone it down on mobile */
+@media (max-width: 400px) {
+  nav .max-w-7xl { padding-left: 12px !important; padding-right: 12px !important; }
 }
